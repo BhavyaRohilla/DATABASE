@@ -1,0 +1,314 @@
+                                                    Day - 1
+
+=================================
+INTRODUCTION TO DATABASE CONCEPTS
+=================================
+
+1) Understanding the Data & Database & Database Management System (DBMS)
+========================================================================
+        Data >> Information about any Real World Object
+            Ex:- Chairs, Tables, Mobiles, Computer, Laptop, Student, Employee, Customer etc...,
+
+        Example : If we are considering the College Management System of Student
+
+            Student
+            =======
+            RollNo, Name, Branch, Gender, Age ---> Data (It is something particular about one student)
+
+        Database >> Grouping of Data in structured Format (or) Grouping of Several Student Information.
+
+          Student1                        Student2                      Student3
+          ========                        ========                      ========
+       RollNo  : 1121                  RollNo  : 2255                RollNo  : 8956
+       Name    : Bhavya                Name    : Sweety              Name    : Ram
+       Branch  : CSE                   Branch  : IT                  Branch  : ECE
+       Gender  : Male                  Gender  : Female              Gender  : Male
+       Age     : 22                    Age     : 21                  Age     : 30
+
+
+        Database Management System(DBMS) >> It is a technique for storing and reteriving the information from
+                                            Database. 
+
+        In this Digital Era (or) In our Day-2-Day life we are seeing the lot of application such as Naukri Portal,
+        Monster Portal, Flipkart, Amazon etc...,
+
+        EndUser >> Interacting the Application >> Runs in Server at Remote Machine >> Servers Connected To Database
+        (Managing the Information of an Application).
+
+2) Various techniques for Managing the Data
+===========================================
+    
+    >> Traditional Approach (Books (or) Ledger Books) >> Collection of Pages >> Each Page >>
+       One Student Information.
+    
+        Problems
+        ========
+        1) Security Challenges.
+        2) Backup issues.
+        3) Space issues.
+        4) Costly.
+        5) Time consuming for retrieving particular Student Information.
+
+
+    >> In the 1940's computers wes discovered and people are thinking to store this kind of information in computer.
+
+    >> After discovering the computer the people are managing the data in the form of Files (or) File System.
+       
+        Problems
+        ========
+        1) Security Challenges
+        2) Data Redundancy >> Duplication of Data (or) Repeatitive Data.
+
+            Student.txt                                  StudentBranches.txt
+            ===========                                  ===================
+            StudentID  StudentName                       StudentID  BranchName
+            ---------  -----------                       ---------  ----------
+        3) Data Inconsistency : When ever we are updating studentID in One file may forget to update in another file.
+           
+            Student.txt                                  StudentBranches.txt
+            ===========                                  ===================
+            StudentID  StudentName                       StudentID  BranchName
+            ---------  -----------                       ---------  ----------
+        4) Time Consuming For Storing and Retrieving Information from Files (or) FileSystem (or) Flat Files.
+        5) We can't maintaining the Backups of files.
+        6) We can store limited amount of Information Only in Files.
+
+    Database Softwares
+    ==================
+      * Currently In Market we are managing the of an application in Database Softwares.
+
+
+      Advantages
+      ==========
+      1) Strong Security.
+      2) Manage and Storing and Retreving the Information.
+      3) We can store the huge Amount of Information in Database.
+      4) we can maintain the data in database in structured format(Tables(Rows and Columns)).
+          Table >> Realworld Entity >> Student.
+          Columns >> Fields >> Rollno, Name, Branch, Gender.
+          Rows >> Values >> 123, Bhavya, CSE, Male.
+      5) No Data Redundancy.
+      6) Data Integrity.
+      7) Association.
+
+3) Database Softwares
+=====================
+    - Oracle Database >> Oracle Corporation >> Propertiary License
+    - MySql Database >> Oracle Corporation >> Open Source
+    - DB2 Database >> IBM Corporation
+    - SQL Server Database >> Microsoft Corporation
+    - Derby Database >> Sun MicroSystem
+    - PostgreSql Database etc.....,
+
+  NOTE :
+  ------ 
+  - The above database comes under category "RDBMS Database Softwares". 
+  - In the Relational Database Management System the data will be managed in the form of Relations(Tables).
+  - In the Relational Database Management System always data will be in Structured Fromat i.e.,Tables
+  - Table will contains Rows & Columns with Respective to the RDBMS Columns >> Fields
+                                                                    Rows    >> Tuples
+                                                                    Tables  >> Relations
+
+
+    customers(Table)
+    ================
+    Customer_ID       Customer_Name         Customer_Location
+    ===========       =============         =================
+      1025              Bhavya                  Haryana           >>Tuples
+      1026              Sweety                  Rajasthan         >>Tuples
+      1027              Ram                     Delhi             >>Tuples
+      1028              Sham                    Goa               >>Tuples
+      1029              Geeta                   Hyderabad         >>Tuples
+
+    - Fields >> Customer_ID,Customer_Name,Customer_Location.
+    - Program ::: Only Two RDBMS Softwares (Oracle,MySQL)
+    - Generally In RealWorld who one person will communicate with another person >> Language >> English(Communication).
+    - If the enduser wanted to communicate with RDBMS Database Softwares >> Language >> SQL(Structure Query Language).
+    - Relational Databases are also called as "SQL Databases"
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+                                                    Day - 2
+
+1) Types of Database Softwares
+==============================
+            * We have two types of Database Softwares.
+                    1) RDBMS Database Software / SQL Databases : Oracle, MySQL, SQLServer, PostgreSql, DB2, Derby etc..,
+                       - In RDBMS/SQL Database always data will be stored in two dimensional format i.e.,Tables.
+                       - Table will Contains Rows & Columns, Always Column represented as "Fields" and
+                         Rows represented as "tuples" and Table represented as "Relation".
+                       - In RDBMS/SQL Database always data will be stored in "Structured Format".
+                       - In Realtime most of banking application, e-commerce application are using RDBMS
+                         Database Softwares only.
+
+                    2) NRDBMS Database Software / No-SQL Databases : Data will be managed in several Formats.
+                              -Document based Databases >> No SQL Database >> Mongo DB >> Internally Data will be stored in
+                                                                                          JSON Format.
+                              {
+                                "customerId":"123",
+                                "customerName":"Bhavya"
+                              } 
+
+                              - Key-Value Based Database >> No SQL Database >> Cassandra DB, Dynamo DB.
+                              - Column Based Database >> No SQL Database >> HBase etc....
+                              - Graph Database >> No SQL Database >> Neo4J, GraphQL etc.., 
+
+    * Database is meant for storing data of an Application.
+    * Always Data will be Populated into Database from Several Application.
+       Ex: Internet Banking >> We are performing some transaction on day-2-day Activities this will leads generate data
+                               into database.
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+                                                    Day - 3
+
+Structured Query Language(SQL)
+==============================
+                - SQL Stands for structured Query Language.
+                - SQL is used to communicate with any RDBMS Database Softwares.
+                - SQL is database Query language/ database programming language.
+                - As End user we can pass statement to execute in Database such statements called "SQL statement / Queries".
+                - SQL statements are just like normal English statements.
+                - We can write the sql statements either in upper case letter (or) lower case letters i.e., SQL is 
+                  case-Insensitive Database programming language.
+                - SQL Language becomes ANSI(American National Standard Information) Standard will become common language 
+                  for any RDBMS Database software /SQL Database softwares.
+                - When we writing the SQL Statements every SQL statements must be terminated with Semicolon(;).
+                - In SQL at a time only one SQL Statement will be executed.
+                - If we wanted to execute some bunch of SQL statement at a time for you buisness requirement we need to go for 
+                  "PLSQL".
+                - Procedural Language using SQL.
+    
+  Example
+  =======
+
+    customers(Table)
+    ================
+    Customer_ID       Customer_Name         Customer_Location
+    ===========       =============         =================
+      1026              Sweety                  Rajasthan      
+      1027              Ram                     Delhi          
+      1025              Bhavya                  Haryana        
+      1028              Sham                    Goa            
+      1029              Geeta                   Hyderabad      
+
+ * If we store the above customer information into database we can get the particular customer information based on our
+   buisness requirement in easy manner.
+
+   EndUser >> Writing SQL Statement >> Based on buisness requirement (need to get All Customer Information belongs
+                                       to Hyderabad)
+
+            select * from customers where Customer_Location='Hyderabad'; >> SQL Statement (or) Query >> Milli Seconds
+                                                                            information will be infront of you.
+
+            select * from customer; >> It will give you all customer information.
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+                                                    Day - 4
+
+Basics of Database Concepts
+    1) Terminologies in Database
+
+    2) Types of Database Softwares 
+           - RDBMS Database Softwares / SQL Database Softwares :: Oracle,Mysql,SQLServer,Postgresql,DB2,Derby DB etc.,
+
+           - NRDBMS Databae Softwares /No-SQL Database Softwares :: MongoDB,Cassander,Hbase,DynamoBD,Neo4J etc., 
+
+    3) Understanding the SQL(Structured Query Language)
+
+    End User(User) >>>>>>>>>> SQL Statements/Queries  >>>>> RDBMS Database Softwares
+
+     Example
+     =======
+         Customers(Table)
+         ===============         
+         Customer_Id          Customer_Name              Customer_Location
+         ===========          ==============             =================
+           1025                  Bhavya                    Hyderabad   
+           1026                  Suresh                    Delhi	
+           1027                  Rajesh 		               Bangalore    
+           1028                  Nagesh                    Chennai      
+           1029                  Naresh                    Pondicherry  
+
+         
+       Business Requirement  ::: Wanted to get All customers who are residing at Hyderabad
+
+       End User/Programer/Developer >>>>>>>> select * from customers where customer_location='Hyderabad'; >>>> RDBMS Database
+                                                   (SQL Statement / Query)                                                 
+
+       OUTPUT
+       ======
+        Customer_Id          Customer_Name              Customer_Location
+         ===========          ==============             =================
+           1025                  Bhavya                    Hyderabad 
+
+
+Today Session
+=============
+
+1) What is Oracle?
+==================
+     * Oracle is an one of the RDBMS Database Software which can maintain the data in structured Format.
+     * In Oracle Always Data will be stored in two-dimensional Format / Tabular Format.
+     * Oracle Database is From Oracle Corporation.
+     * Using SQL Language we can interact with Oracle Database.
+     * Oracle contains two Parts
+        1) SQL >> Which is used to storing and managing and retreving Data from database software.
+        2) PLSQL >> Executing some buisness rules/buisness logic in Database Software using stored procedure, Stored Functions.
+     * Oracle Latest Version of Express Edition : Oracle 21C Express Edition.
+
+2) Installing Oracle (or) Enviromental setup For Oracle
+=======================================================
+    Step-1 : We are going to Install the Oracle 11g Express Edition which is an Light weight version of Oracle
+             Database and download the Oracle Database in the below url.
+       URl : https://www.mediafire.com/file/ungqk8ggwof4h1h/OracleXE112_Win64.zip/file 
+
+    Step-2 : After Completion of Downloading need to extract the zip file into folder by using either 
+             winzip/7Zip Software.
+           Extracting the ZIP File  >>>>>>> Normal Folder
+
+    Step-3 : Open the Extracted the Folder and find the executable file(.exe file) 
+             in below location in extracted folder.
+           <Oracle_Home>\DISK1\setup.exe
+           <Oracle_Home>  >> A Place where Oracle Database Software is available i.e.,Oracle Home
+
+    Step-4 : Complete the installation process just by double clicking on it 
+             untill finish button (or) Just like normal Software Installation process in our machine.
+
+    Step-5 : During the Oracle Database Installation we need to rememeber password given for DBA
+             Account(sys (or) system) and we provided the password for DBA accounts in my case as "**********".
+
+NOTE : Just For Your Information
+================================
+Destination Folder: C:\oraclexe\
+Oracle Home: C:\oraclexe\app\oracle\product\11.2.0\server\
+Oracle Base:C:\oraclexe\
+Port for 'Oracle Database Listener': 1521
+Port for 'Oracle Services for Microsoft Transaction Server': 2030
+Port for 'Oracle HTTP Listener': 8080
+
+__________________________________________________________________________________________________________________________________
+Interacting with Oracle Database
+================================
+* Inorder to interact with Oracle database, Oracle vendor provided "SQL* Plus editor" which is an "Command Line Interface"
+
+   Go to Start menu >> Search word as  "SQL" >> Find the Option as "Run SQL Command Line prompt" will comes along with the 
+   Oracle 11g Express edition installation process
+
+* After opening the SQL Command Line execute the below command to connect with oracle Database Software
+
+     SQL> connect(Hit Enter)
+     Enter user-name: system(Hit Enter)
+     Enter password:manager(Password will not visible to You just we need to type password and hit on enter)
+     Connected.
+
+     SQL>> Show user  (Viewing current user name)
+  
+     SQL>> cl scr (clear screen)
+  
+     SQL>> exit (Quit from SQL Prompt)
+     
+     SQL>> select * from all_users;
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
