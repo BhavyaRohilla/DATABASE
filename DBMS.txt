@@ -312,3 +312,123 @@ Interacting with Oracle Database
      SQL>> select * from all_users;
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 
+                                                    Day - 5
+
+Interacting with Oracle Database
+=================================
+Approach-1 
+----------
+Using Command Line Interface(CLI) oracle Database i.e.,Sql*plus
+
+  Start Menu >> Search Word "sql" >> Find option "Run SQL Command Line" >> Select that Option will open SQL Prompt
+
+
+     SQL >>  Connect 
+
+
+     Enter Username ::: System
+
+     Enter Password ::: manager(not visible)
+
+     Connected
+
+
+     SQL >> show user
+
+      OUTPUT
+      ======
+       system
+
+ 
+      SQL >> Select * from all_users;  >> To get all the users information from Oracle Database
+
+       OUTPUT
+       ======
+         Users Information
+
+      SQL>> cl scr  >>> Clearing the Screen
+
+
+      SQL >> exit   >>> Exiting the SQL Prompt
+
+Approach-2 
+----------
+>>  By Using Oracle WebPage we can interact with Oracle Database and during installation of Oracle11g Express Edition we got      one webpage into our Machine Desktop  i.e., "Get Started With Oracle Database 11g Express Edition"
+
+
+>>  When we Open the following page i.e.,Get Started With Oracle Database 11g Express Edition by default it will given you an
+ 
+    error because need to configure the Oracle Port Listener Number(8080) for this webPage.
+
+
+>>> Adding the Oracle Listener Port Number to the above web page
+
+    Right Click on the web page >>> choose an option "Open File Location" >>> select "Get Started" Page and Right click on  
+    this page >>> Select the option "Properties" >> Change the url as below
+
+          Exisiting URL ::::    http://127.0.0.1:%HTTPPORT%/apex/f?p=4950 
+
+ 
+          Changed URL   ::::   http://127.0.0.1:8080/apex/f?p=4950 
+
+>>> After the doing the Above url change now just try to open the Same Page.....Will be getting Some Home Page 
+
+    Select option "Application Express" >> will getting another Screen infront of you
+
+             Create Database User  >>> Create new User (Select this Option)
+
+                 Username          >>> bhavya
+
+    Application Express Workspace  >>> bhavya
+
+                 Password          >>>  (Invisible Characters)
+
+       Confirm Password            >>>  (Invisible Characters)
+
+
+   We need to Click on button  "Create Workspace" >>After clicking on it will get Success Message workspace got created.
+
+
+>>> We need to Login with New credentials of an Newly created workspace
+
+          Workspace name  :::: bhavya
+
+          username        :::: bhavya
+
+          password        :::: 124444
+
+         Click on  "Login" Button
+
+>>> After Login we need select menu "SQL Workshop"
+
+       1) SQL Commands    >>> Here we can write the required Sql Commands to test with oracle Database
+
+
+       2) Object Browser  >>> We can see the Oracle Database Objects information (table,views,sequences,SP,SF etc.,)
+
+                          >>> Using this option we can create any Database Object using graphical Objects.
+
+
+ERROR:ORA-12543: TNS:destination host unreachable
+=================================================
+1) Verify Services in our machine related Oracle.
+
+   Go to run option  >> Type word  "services.msc" >> Find oracle related Services is in Running or not
+
+             OracleXETNSListener    >> Running
+
+             OracleServiceXE        >> Running
+
+2) Navigate to Oracle Installation Folder >> Search with following file "tnsnames.ora"  >> Edit this file and change the    service name XE  >> ORCL.
+
+
+3) Verify Your system is enabled with Firewall or not, If it enabled just disable it and try onces
+
+
+ERROR : Checking for Oracle XE service instance FAILED, How to solve this problem sir
+=====================================================================================
+Solution ::: Swith to Command Prompt  >>> type the below command 
+
+               C:\Users\NEW>sc delete OracleServiceXE
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 
