@@ -609,3 +609,83 @@ NOTE
    Already Having Account : http://127.0.0.1:8080/apex/f?p=4500:1000:4516113379588092
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  
+
+                                                     Day - 7
+
+* we seen How to Interact with oracle Database using three approach
+
+    1) Command Line Interface(CLI) i.e, SQL*Plus
+    2) Web page
+    3) Graphical User Interface(GUI) i.e, Oracel SQL Developer, Toad for Oracle etc., >>> Trending in Market
+
+Oracle accounts
+---------------
+
+1) Database Administrator Account(DBA) Account i.e, sys(or)system
+2) we created some Database User using WebPage Approach i.e., bhavya.
+3) We Will Create one Database user using CLI Approach i.e.,
+
+     step-1 : Creating the user using CLI Screen
+     --------------------------------------------
+            
+            SQL > create user ramesh identified by password;
+               User Created.
+
+      NOTE:
+      =====
+          Database Username : ramesh and Database Password: password
+
+
+    step-2 : Giving the Permissions to Newly Created User i.e,ramesh
+    -----------------------------------------------------------------
+
+            SQL> grant resource,connect to ramesh;
+              Grant secceeded.
+
+    Note: After Creating the User make sure we need to give Permissions for Creating Database Objects 
+          (Table, sequence, Index, View, Stored procedure, Stored Function etc.,)
+
+
+    Step-3 : Connectng to newly created user using CLI Approach
+    -----------------------------------------------------------  
+         SQL> connect
+         Enter user-name: ramesh
+         Enter password: 
+         Connected.
+    
+Note:
+=====
+* We can always create an new Database user account through DBA Account only.
+* We Can't create newly Database user account from another User Account.
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+SQL Commands
+------------
+* SQL Commands is nothing but SQL Statements (or) SQL Queries.
+* Basically Statement represents performing the particular task (or) Statement is group of predefined words
+  Example : select * from emp;
+* Every Statement must be terminated by Semicolon.
+* The Statement which we are Passed to Database Software System such statement is called as "SQL Statements".
+* Basically SQL Commands/SQL Statements are categorized as below
+
+  1) Data Definition Language(DDL) Commands (or) DDL Statements. 
+     >> Deals with Creating/Modifying/Dropping Structure of Database object.
+     >> DDL Commands are "create, alter, drop"
+
+  2) Data Manipulation Language(DML) Commands (or) DML Statements.
+     >> Deals with Data for an Database objects.
+     >> DML Commands are "insert, Update, delete".
+
+  3) Data Control Language(DCL) Commands (or) DCL Statements.
+     >> Deals with giving the Permission (or) Revoking the permission of an users.
+     >> DCL Commands are used By "DBA Persons"
+     >> DCL Commands are "grant,revoke"
+
+  4) Data Retrevial Language(DRL) Commands (or) DRL Statements.
+     >> Deals with Retreving the data from Database Objects.
+     >> DRL Commands are "select"
+
+  5) Transaction Control Language(TCL) Commands (or) TCL Statements.
+     >> Deals with Transaction Management
+     >> TCL Commands are "commit, rollback"
