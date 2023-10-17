@@ -688,4 +688,317 @@ SQL Commands
 
   5) Transaction Control Language(TCL) Commands (or) TCL Statements.
      >> Deals with Transaction Management
-     >> TCL Commands are "commit, rollback"
+     >> TCL Commands are "commit, rollback, savepoint"
+
+NOTE
+====
+     Database Objects in Oracle : Tables, Views, Sequences, indexes, Stored Procedures, Stored Functions etc.,
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+git commit -m "💥🔥❤️‍🔥"
+                                                     Day - 8
+
+Database Object >> Table
+========================
+* To Create a Database Object of an Table we need to user DDL Command of "create".
+* After creating the Database object of an Table in Databae as a Programmer we need to insert data into table then we need to use DML 
+  command "insert".
+* After Inserting the data into Database as a Programmer we need to validate the information by using DRL command "select".
+
+Example : Creating a sample Database table 
+==========================================
+
+write a Query for creating Database Table of "customers" information with following fields
+              >  CustomerId     >>   only numbers 
+              >  CustomerName   >>   strings 
+              >  Gender         >>   strings
+              >  Age            >>   only numbers
+              >  Location       >>   string
+
+>> In Order to create the Database table we will use DDL Command "create" and obseve the syntx as below.
+
+          create table <table_name>(
+                                      <column_name_1> <Datatype>,
+                                      <column_name_2> <Datatype>,
+                                      ..........................,
+                                      ..........................,
+                                      <column_name_n> <Datatype>,
+                                   ); 
+
+  NOTE: Naming Conventions need to be follow for any name in Oracle Database
+  ==========================================================================
+    1) Every name in the Database must begins with "Alphabet".
+    2) We need to follow the mentioned charset i.e., a-z, A-Z, 0-9, @, $, #, _,  
+    3) Names are not Case Sensitive.
+    4) Predefined Keywords are not allowed.
+    5) Blank Spaces are also not allowed in the names.
+
+  Query For Creating Database table
+  =================================
+    create table demo_customers(customer_id number,
+                                customer_name varchar(50),
+                                gender varchar(15),
+                                age number,
+                                location varchar(50),
+                              );
+
+    OUTPUT
+    ======
+    Table created.
+  
+step 2:
+=======
+  *Inserting the data into Database table by using DML Command "insert".
+
+
+   Syntax for insert command 
+   =========================
+
+   1) insert into <table_name>(column_name_1, column_name_2..................column_name_n) values(value1, value2,.....valuen);
+
+   Example
+   -------
+    insert into demo_customers(customer_id,customer_name,gender,age,location) values (01,'Bhavya','Male',22,'Hyderabad');
+
+    insert into demo_customers(customer_id,customer_name,gender,age,location) values (02,'Sweety','Female',21,'Hyderabad');
+
+
+    2) insert into <table_name> values(value1,value2,value3................valuen);
+
+    Example
+    -------
+       insert into demo_customers values(03, 'Rajesh', 'Male', 40, 'Mumbai');
+    
+    3) insert into <table_name> values(&customer_id,&customer_name,&gender,&age,&location);
+    
+
+
+
+step 3:
+=======
+ * Just Validating the Information by selecting data from Dtabase Table using DRL Command "select"
+
+ Syntax for select command
+ =========================
+      select * from <table_name>;  >> Retrieves all the information from given table
+
+  Example
+  =======
+     select * from demo_customer;
+
+  NOTE
+  ====
+   SQL> set linesize 200;  
+
+   How can we clear the Screen of oracle SQL* Plus Editor
+   ======================================================
+
+    SQL >> cl scr
+
+   How can we increase the chracters per line oracle SQL* Plus Editor
+   ===================================================================
+        SQL >> set linesize <number>; Ex: set linesize 300;
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+                                                     Day - 9
+
+How to Modify the data in Database Table
+========================================
+ * By using update statement we can change the Exisiting column value based on some conditions.
+ * Condition means whether you want to update columns values for all records (or) particular record.
+ * If you omit (or) ignore the condition in the update statement then will performs update all records of columns values will be reflected.
+
+ Syntax For Updating all rows in the Database table
+ ==================================================
+      update table <table_name> set <modifyingcolumn1>=<modifyingcolumn1value>....<modifyingcolumnn>=<modifyingcolumnnvalue>
+
+  Example : write SQL Query to update the location as "Delhi" for all customers in demo_customer table
+
+      SQL >>>> update demo_customer set location='Delhi';
+
+      Result ::: 3 rows updated.
+
+ Syntax For Updating Particular rows in the Database table
+ ==========================================================
+      update table <table_name> set <modifyingcolumn1>=<modifyingcolumn1value>....<modifyingcolumnn>=<modifyingcolumnnvalue>
+                              where <condtion>
+    
+        Example : write SQL Query to update the location as "Delhi" for particular customers in demo_customer table
+                  whose customer_id is 1
+
+        SQL >>> update demo_customer set location='Delhi' where customer_id = 1;
+
+        Example : write SQL Query to update the location as "Delhi" for particular customers in demo_customer table
+                  whose customer_name is sweety
+
+        SQL >>> update demo_customer set location='Delhi' where customer_name = 'Sweety';
+
+        Result ::::: 1 row updated.
+
+        Example : write SQL Query to update the location as "Pune" and age "22" for particular customers in demo_customer table
+                  whose customer_name is bhavya
+
+        SQL >>> update demo_customer set location='Pune', age=40 where customer_name = 'Bhavya';
+
+        SQL >>> update demo_customer set location='Pune', age=40 where customer_name = 'Bhavya' and gender='Male';
+
+ 
+ NOTE: 
+ =====
+ * As of now in our table we have only one customer record name as "Bhavya" that is reason we are getting only one row updated 
+   in the above updated SQL statements.
+
+ * If we are having more than one customer whose customer names having "Bhavya" then will get respective rows matched got updated.
+
+ * In the Realtime always recommended to perform the update statement based on the customer_id because customer_id will be
+   unique for every customer.
+
+ * we used two predefined keywords in update statement i.e., set and where
+
+     "set" is used for defining the modifying columns in Database table.
+     
+     "where" is used specifying the condition to update the particular row (or) rows in database table.
+
+How to Remove the Unwanted records from Database Table
+======================================================
+* By using delete command from DML Statements.
+
+* By using delete command we can remove the unwanted records from Database Table.
+
+* If you specifying the where in delete statement then will delete particular records based on condition specified.
+
+* If you omit (or) ignore the condition in delete statement then will delete all rows from Database Table.
+
+ Syntax
+ ======
+        delete from <table_name>;
+
+  Ex: delete from demo_customer; >>>>>> It will delete all rows from database table because we don't have any where condition
+                                        in sql statement.
+
+ Syntax
+ ======
+        delete from <table_name> where <Conditions>;
+  
+   Ex: delete from demo_customer where customer_id=1; >>> Deleting record from Table whose customer_id as 1
+
+       delete from demo_customer where customer_name='Bhavya'; >>> Deleting record from Table whose customer_name as 'Bhavya' 
+
+       delete from demo_customer where gender='Male'; >>> Deleting customer from Table whose gender as "Male"
+
+       delete from demo_customer where gender='Male' and age>=35; >>> Deleting customers from Table whose gender as "Male" and age
+                                                                      Should be greater than 35.
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+                                                     Day - 10
+
+Today Session ::: Oracle Datatypes
+==================================
+
+  Datatype >>> It is used to define the type of the value to be holded in the database column.
+
+  Basically Oracle classified the datatypes in the below categories.
+
+  1) Number
+  =========
+   * These datatypes allow used to define the numeric/number value into the databas column such as integers(whole numbers) (or) 
+     decimal numbers(fractional numbers).
+
+      Whole numbers :: 10,20,30,40,50,60,70,85,58,958 etc.,
+
+      decimal numbers :: 10.285,25.36,85.47,1232.1 etc.,
+
+   i) number(size)
+   ===============
+       > This datatype allows us to define only integers (or) whole numbers either positive or negative numbers such as
+         studentrollno, employeeno, customerbillno etc.,
+
+       > Here size represents the numbers of digits.
+
+    Example
+    =======
+       studentNo number(4) >>>> 9999
+
+
+   ii) number(precision,scale)
+   ===========================
+      > This datatype allows us to define decimal values (or) fractional  value such as student average marks, employee salary,
+        Bill Amount of an Customer, Interest Rates in Bank etc.,
+
+      > Here Precision means no of digits including decimal values where as scale means no of decimal value.
+         
+         Example
+         =======
+            employeesalary number(6,2); >>>> 9999.99
+
+            billAmount number(8,3); >>>> 12345.678
+
+2) Alphabets : This datatype further divided into below types 
+============
+     
+     i) char(size) :
+     ===============
+        > This datatype allows us to define character values  such as employee names, student names etc.,
+
+        > The maximum length of datatype is 1-2000 chracters.
+
+        > It always allocates the memory in a static passion.
+
+          Example:
+          ========
+              studentName char(25);
+              Name of Student ::: Bhavya
+
+        Dis : This will lead memory wastage.
+
+
+    ii) varchar(size) / varchar2(size) :
+    ===================
+       > This datatype allows us to define character values such as employee names, student names, customer name etc.,
+
+       > The maximum length of datatype is 1-4000 chracters.
+
+       > It always allocates the memory in a Dynamic Passion.
+
+         Example
+         =======
+            studentName varchar(30);
+
+            Name of Student ::: Bhavya
+   
+          NOTE
+          ====
+            Difference between varchar (Vs) varchar2 datatype ?
+
+               varchar is developed by SQL.
+
+               varchar2 is developed by Oracle corporation.
+
+3) Date : 
+=========
+     > This datatype allow us to defined date values in the database column such as
+        DateofJoining, HireDate, BirthDate, PurchaseDate, DateofBooking, etc.,
+
+     > The Default format of date in Oracle database is "DD-MON-YY" >>> 12-FEB-13
+
+4) Timestamp : 
+==============
+     > This datatype allows us to define both date and time values into database column.
+
+     > The default format of timestamp in Oracle database is "DD-MON-YY HH::MM::SS" >>> 12-FEB-13 18:20:35
+
+     COMMAND - select sysdate from dual;
+
+5) Miscellaneous :
+==================
+  i) Clob  >>> Character Large Object >> Which is extension of Varchar datatype >> 1GB -To - 4GB Data to Store.
+
+  ii) Blob >>> Binary Large Object >> Which is used for storing files, audio, video etc., >>>> 1GB -To - 4GB
+
+  iii) BFile >>> Binary File >> Which can be used for external data such as external files, binary files etc.,  >>>> 1GB -To - 4GB 
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+                                                     Day - 11
