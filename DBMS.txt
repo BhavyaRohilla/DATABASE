@@ -1002,3 +1002,219 @@ Today Session ::: Oracle Datatypes
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
                                                      Day - 11
+********************************************
+*Today Session :   Exploring on DDL Command*
+********************************************
+    * DDL Stands "Database Definition Language".
+
+    * DDL Commands always deal with structure of Database Objects.
+
+    * Database Objects means table, views, sequences, storedProcedures, storedFunctions etc.,
+
+    * Following are the DDL Commands "create, alter, truncate, drop, rename"
+
+    * By using DDL Commands we can apply on any Database Objects.
+
+  1) Create
+  ========= 
+    * By using this DDL Command we can create any Database Object(Table, View, Sequences, Synonyms,  storedProcedures, storedFunctions)
+
+    * As of now we are going to create any Database table (Database Object)
+    
+     Syntax
+     ======
+          create table <table_name>(columnname1 column1Datatype, Columnname2 columnname2Datatype.......columnnamen columnndatatype)
+
+     Example
+     =======
+       create table demo_users(username varchar2(50),user_password varchar2(100));
+
+  2) Alter
+  ========
+    * By using this DDL Command we can modify the structure of the Database Objects.
+
+    * As of Now By using this DDL Command we can modify the structure of the Database Table.
+
+    *By using this command we can perform below thigs.
+
+            i) we can add the new column to the existing table.
+
+           ii) we can remove/drop the existing column from table.
+
+          iii) we can rename column names for existing columns in table.
+
+           iv) we can modify the datatypes for existing columns in table. 
+      
+    i) Adding new column into Existing Table(alter-add) :
+    =====================================================
+      >> This command is used to add one column (or) more than one column to the existing table.
+
+      Syntax
+      ======
+          alter table <table_name> add(columnname1 columnname1Datatype........columnnamen columnndatatype);
+
+      Example
+      =======
+        SQL >> Alter table demo_users add(gender char(1), city_name varchar2(50));
+
+      NOTE :
+      ======
+        >>> We cannot add the new columns at required positions in the table.
+
+        >>> Always newly added columns will be added at end of existing column.
+
+    ii) we can remove/drop the existing column from table(alter-drop)
+    =================================================================
+        * This command is used to remove the columns from the existing Database table.
+
+        * By using this command either we can drop one column (or) more than one at a time.
+
+        Syntax
+        ======
+           alter table<table_name> drop column <columnname-1>; -- Removing only one column
+
+           alter table <table_name> drop (columnname-1,columnname-2......columnname-n);
+
+        Example
+        =======
+          SQL >>> alter table demo_employees drop column created_dt; -- Removing the one column.
+
+          SQL >>> alter table demo_employees drop(created_dt,dob); -- Removing the multiple columns.
+
+    iii) we can rename column names for existing columns in table(alter-rename)
+    ===========================================================================
+       * This command is used to to change the column names from old column names to new column names.
+
+       * By using this command we can't rename columns name for more than one columns at a time.
+
+     Syntax 
+     ======
+       alter table <table_name> rename column <old_column_name> to <new_column_name>;
+
+     Example
+     =======
+       SQL >> alter table demo_employees  rename column empname to employee_name;
+
+
+    Syntax for Renaming the Table name
+    ==================================
+        alter table <old_table_name> to <new_table_name>;
+
+        old_table_name >>> demo_employees;
+
+        new_table_name >>> bhavya_employees;
+
+    Example
+    =======
+       SQL >>> alter table demo_employees rename to bhavya_employees;
+
+    OUTPUT
+    ======
+      Table DEMO_EMPLOYEES altered.
+
+    SQL >>> select * from demo_employees;
+
+     OUTPUT
+     ======
+         ORA-00942: table or view does not exist
+         00942. 00000 -  "table or view does not exist"
+
+
+    SQL >>> select * from bhavya_employees;
+
+    OUTPUT
+    ======
+      TABLE
+   
+  iv) we can modify the datatypes for existing columns in table(alter-modify)
+  ===========================================================================
+       > By using this command we can increase/decrease the size of the datatype of database columns and we can change the datatype
+         from old datatype to new datatype.
+
+  Syntax
+  =======
+     alter table <table_name> modify column_name datatype(size);
+
+     alter table <table_name> modify (column_name-1 datatype(size).........column_name-n datatype(size));
+
+  Example
+  =======
+    SQL >>> alter table bhavya_employees modify employee_name varchar2(100);
+
+    SQL >>> alter table bhavya_employees modify (empid number(6), employee_name varchar2(140));
+
+3) truncate
+===========
+  * This command is used to delete the records permanently from the existing table.
+
+  * create, alter, rename, drop are concentrating on  structure of the Database Object but where as truncate concentrates on data.
+
+    Syntax:
+    =======
+       truncate table <table_name>;
+
+    Example
+    =======
+       truncate table bhavya_employees;
+
+    OUTPUT
+    ======= 
+      Table BHAVYA_EMPLOYEES truncated.
+
+4) drop
+=======
+   * This Commnad is used to remove the table structure from the Database objects
+
+    Syntax
+    ======
+       drop table <table_name>;
+
+    Example
+    =======
+       drop table bhavya_employees;
+
+    OUTPUT
+    ======
+     Table BHAVYA_EMPLOYEES dropped.
+
+5) rename
+=========
+  * This Commnad is used to change the table name from old table name to new table name.
+
+   Syntax
+   ======
+       rename <old_table_name> to <new_table_name>
+
+   Example
+   =======
+      rename demo_customer_user to bhavya_users;
+
+   OUTPUT
+  =======
+    Table renamed.
+
+NOTE 
+====
+  >>> What ever the tables we got dropped in oracle database those table are available in oracle recycle bin.
+
+  >>> To retreive the oracle recycle bin then we need to use the below command.
+
+     SQL >>>> select * from recyclebin;
+
+  >>> We can restore the dropped table back to oracle database by using the flashback command.
+
+  Syntax
+  ======
+     flashback table <table_name> to before drop;
+
+  Example
+  =======
+    SQL >>> flashback table bhavya_employees to before drop;
+  
+  OUTPUT
+  ======
+     Flashback succeeded.
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+                                                     Day - 12
